@@ -1,0 +1,35 @@
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+int x[10] = { 35,24,78,76,43,12,34,56,98,67};
+void fun1(int y[], int n);
+void main()
+{
+    int i;
+    cout << "输入数据:";
+    for (i = 0; i < 10; i++)
+    {
+        cout << x[i] << " ";
+    }
+    cout << endl;
+    fun1(x, 10);
+    cout << "输出结果:";
+    for (i = 0; i < 10; i++) cout<< x[i] << " ";//这样写也可以
+    cout << endl;
+}
+void fun1(int y[], int n)//此处形参用指针也可以
+{
+    cout << "运算结果:";
+    int i, j, k, q;
+    for (i = 0; i < 10; i++)
+    for (j = i + 1; j < 10; j++)
+    if (y[i] < y[j])
+    {
+        k = y[i];
+        y[i] = y[j];
+        y[j] = k;
+        for (q = 0; q < 10; q++)cout << y[q] << " ";
+        cout << endl;
+    }
+    return;
+}
