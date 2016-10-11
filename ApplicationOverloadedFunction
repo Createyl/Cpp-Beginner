@@ -1,0 +1,33 @@
+#include<iostream.h>
+#include<math.h>
+struct intpoint
+{
+  int x;
+  int y;
+};
+struct doublepoint
+{
+  double x;
+  double y;
+};
+int distance(intpoint a,intpoint b)//内部定义的结构体变量任意制定此处a，b也可以是c,d,最终由主函数决定。
+{
+ double dis;
+ dis=fabs(sqrt(pow((a.x-b.x),2)+pow((a.y-b.y),2)));
+    return (int)dis;
+}
+double distance(doublepoint c,doublepoint d)
+{
+    double dis;
+ dis=fabs(sqrt(pow((c.x-d.x),2)+pow((c.y-d.y),2)));
+    return dis;
+}
+void main()
+{
+ intpoint a,b;
+ doublepoint c,d;
+ cout<<"Input two point"<<endl;
+    cin>>a.x>>a.y>>b.x>>b.y>>c.x>>c.y>>d.x>>d.y;
+ cout<<"The int-distance between two point is "<<distance(a,b)<<endl;
+ cout<<"The double-distance between two point is "<<distance(c,d)<<endl;
+}
