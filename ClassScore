@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+struct student
+{
+    char name[10];
+    int chinese,math,english;
+};
+void main()
+{
+    student a;
+    cin>>a.name>>a.chinese>>a.math>>a.english;
+    cout<<"姓名："<<a.name<<endl;
+    cout<<"语文成绩："<<a.chinese<<endl;
+    cout<<"数学成绩："<<a.math<<endl;
+    cout<<"英语成绩："<<a.english<<endl;
+}
