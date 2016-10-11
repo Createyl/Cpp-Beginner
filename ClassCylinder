@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+class cyl
+{
+public:
+    double r,h;
+    cyl()
+    {
+        r=0;
+        h=0;
+    }
+    cyl(double r1,double h1)
+    {
+        r=r1;
+        h=h1;
+    }
+    
+    double volumn(double r,double h)
+    {
+        return 3.14*r*r*h;
+    }
+    double area(double r,double h)
+    {
+        return 2*3.14*r*h+2*3.14*r*r;
+    }
+    ~cyl(){}
+};
+void main()
+{
+    cyl a;
+    cyl b(3,4);
+    cin>>a.r>>a.h;
+    cout<<"a体积"<<a.volumn(a.r,a.h)<<"b面积"<<a.area(a.r,a.h)<<endl;
+    cout<<"b体积"<<b.volumn(b.r,b.h)<<"b面积"<<b.area(b.r,b.h)<<endl;
+}
