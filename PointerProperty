@@ -1,0 +1,129 @@
+#include<iostream.h>
+void main()
+{
+ int *p,a;
+ a=2;
+ p=&a;
+ cout<<p<<endl;//p就是一个指针变量，内容只能是地址
+ cout<<*p<<endl;//*p 除了在定义时代表地址存储的内容
+}
+ 
+#include<iostream.h>
+/*void main()
+{
+  int a,b;
+  b=a;//b只能一次性赋值
+  a=10;
+}*/
+void main()
+{
+ int a;
+ int &b=a;
+ a=10;
+ cout<<a<<endl;
+    cout<<b<<endl;
+}
+    
+
+// 入门.cpp : 定义控制台应用程序的入口点。
+//
+#include "stdafx.h"
+#include<iostream>
+#include<string>
+using namespace std;
+int _tmain(int argc, _TCHAR* argv[])
+{
+    return 0;
+}
+void main()
+{
+    int a[10] = { 1, 2, 3, 4, 5 };
+    cout << a << endl;//地址
+    cout << a[0] << endl;//1
+    cout << *a << endl;//1
+    cout << *a+1 << endl;//2
+    cout << *(a + 1) << endl;//2
+    cout << &a[0] << endl;//第一个数据地址
+    cout << &a[1] << endl;//第二个数据地址地址
+int *p = a;
+    cout << p << endl;
+    cout << endl;
+    cout << endl;
+    
+string str;
+    str = "hello world";
+    cout << str << endl;
+    char b[] = "I am boy!";
+    char *ch = b;
+    cout << ch << endl;//I am boy!
+    cout << b[0] << endl;//I
+    cout << b[0]++ << endl;//I
+    cout << *ch << endl;//J
+    cout << &ch << endl;//地址
+    cout << b[0] << endl;//J
+    cout << b[1] << endl;//空格
+    cout << &b[0] << endl;//J am boy
+    cout << &b[5] << endl;//boys  
+    
+    cout << endl;
+    cout << endl;
+    cout << sizeof(int) << endl;//4 1个int型数据所占的字节
+    cout << sizeof(a) << endl;//40 10个int型数据
+    cout << sizeof(b) << endl;//10 10个字符一个一字节
+    cout << endl;
+    cout << endl;
+    //引用变量
+    //引用是变量的别名
+    int  i;
+    int  &ri=i;//需要一个变量名称（i）来初始化 建立引用关系后，在作用域范围，引用ri不允许在与其他变量建立引用关系
+               //ri 和 i 所占的内存空间是一样的
+               //相当于目标变量名有两个名称ri等价于i
+               //声明一个引用不是定义新变量
+               //不能建立数组的引用 不能建立引用的引用 不能建立指向引用的指针
+    i = 5;
+    cout << i << endl;//5
+    ri = 10;
+    cout << i << endl;//10
+    cout << ri << endl;//10
+    cout << i++ << endl;//10   先输出i值 i值＋1
+    cout << i << endl;//11
+    cout << ++i << endl;//12   i值先+1 再输出i
+    
+    cout << endl;
+    cout << endl;
+    int *h = &ri;
+    int *j = &i;
+    cout << &i << endl;//i地址
+    cout << &ri << endl;//ri地址（等于i）
+    cout << h << endl;//指针h的地址
+    cout << &h << endl;//指针h的地址 存放在此地址
+                       //cout << &&h << endl; 此行错误
+    cout << *h << endl;//12
+    cout << *&h << endl;//指针h地址的地址 存放的内容
+    cout << *j << endl;//12
+    cout << j << endl;//指针j的地址
+    cout << &j << endl;//指针j的地址 的地址
+    cout << *&j << endl;//指针j的地址 存放在此地址
+    //可建立指针的引用
+    int *c;
+    int *q = p;//q是p的别名
+    cout << endl;
+    cout << endl;
+    int abc = 17;
+    c = &abc;//把abc地址赋给指针c，操纵指针c相当于操纵abc所存地址内部数值，可以直接操纵abc
+    cout << abc << endl;//17
+    cout << c << endl;//地址
+    cout << *c<< endl;//17
+    *c = 16;//将c地址的所存放的内容改变
+    cout << abc << endl;//16
+    cout << *c << endl;//16
+    int g[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    for (i = 0; i < 10; ++i)//此处++i和i++效果相同
+        cout << g[i] << "  ";
+    cout << endl;
+    ar(g, 10);
+}
+int x[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+void ar(int y[], int n)
+{
+}
