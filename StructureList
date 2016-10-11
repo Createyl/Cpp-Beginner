@@ -1,0 +1,53 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct student
+{
+    char name[10];//姓名
+    int number;//学号
+    int age;//年龄
+    int score;//入学分数
+    student *plink;//结构体指针
+};
+void main()
+{
+    student s1, s2, s3;
+    student *phead, *p, *pn;
+    phead = &s1;//将S1赋值给头指针
+    s1.plink = &s2;
+    s2.plink = &s3;
+    s3.plink = NULL;
+    phead = p = new student;//指针指向头指针(s1)
+    int next = 1;
+    while (next != 0)
+    {
+        cout << "依次输入学生的姓名，学号，年龄，入学分数中间插入空格键" << endl;
+        cin >> p->name;
+        cin >> p->number;
+        cin >> p->age;
+        cin >> p->score;
+        cout << "输入1继续0退出" << endl;
+        cin >> next;
+        if (next != 0)//输入1
+        {
+            student *pn = new student;
+            p->plink = pn;
+            p = pn;
+        }
+        else//输入0
+        {
+            p->plink = NULL;
+            break;
+        }
+    }
+    for (p = phead; p != NULL; p = pn)
+    {
+        pn = p->plink;
+        cout << "name:" << p->name << "number:" << p->number << "age:" << p->age << "score:" << p->score << endl;
+    }
+    for (p = phead; p != NULL; p = pn)
+    {
+        pn = p->plink;
+        delete p;
+    }
+}
