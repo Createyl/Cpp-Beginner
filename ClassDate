@@ -1,0 +1,77 @@
+#include<iostream>
+using namespace std;
+class date
+{
+public:
+    int year, month, day,sum,addyear,addmonth;//成员变量年月日，形式参数，用后面语句赋初值
+    int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };//数组只能在声明时赋值，将值赋给地址，除声明时赋值
+    date()                                              //在用例如days[12]的语句是将值赋给此地址.
+    {                                                   //12个元素第0到第11个元素
+        year = 0;
+        month = 0;
+        day = 0;
+        sum = 0;
+        addyear = 0;
+        addmonth = 0;
+    }
+    
+    ~date() {};
+        int leap()//判断所给年份是否是闰年的函数
+    {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+            return 1;
+        else
+            return 0;
+    }
+        int countmonth()//判断所给天数在该月的第几天
+        {
+            return day;
+        }
+        int countyear()//判断该天是该年的第几天
+        {
+            for (int i = 1; i < month; i++)
+                sum = sum + days[i - 1];
+                if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+                {
+                    if (month >=3) sum++;
+                }
+                sum += day;
+                return sum;
+        }
+        int amountyear()//判断该年总天数
+        {
+            addyear = 365;
+                if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) { addyear += 1; }
+            return addyear;
+        }
+        int amountmonth()//判断该月总天数
+        {
+            addmonth = days[month - 1];
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+            {
+                if (month == 2) { addmonth += 1; }
+            }
+            return addmonth;
+        }
+        void display()//显示函数，显示年份数据
+        {
+            cout << year << "年" << month << "月" << day << "日" << endl;
+        }
+};
+void main()
+{
+    date a;
+    cout << "依次输入年月日中间插入空格键" << endl;
+    cin >> a.year;
+    cin >> a.month;
+    cin >> a.day;
+    if (a.leap() == 1)
+        cout << "这一年是闰年" << endl;
+    else
+        cout << "这一年是闰年" << endl;
+    cout <<"这一天是这个月的第"<< a.countmonth()<<"天"<< endl;
+    cout <<"这一天是这一年的第"<< a.countyear() << "天" << endl;
+    cout <<"这一年有"<< a.amountyear() << "天" << endl;
+    cout <<"这个月有"<< a.amountmonth() << "天" << endl;
+    a.display();
+}
